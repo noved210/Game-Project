@@ -1,7 +1,8 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-
+Temp
+.gitignore
 # Folder config file
 Desktop.ini
 
