@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\TorchCode.cs">
+    <Files>
+      <File FileName="Assets\Code\NPCBehaviour.cs" Line="25" Column="31" />
+      <File FileName="Assets\Code\PlayerDetection.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\PlayerMove.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\CameraSnap.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\TorchCode.cs" Line="27" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
