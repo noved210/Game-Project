@@ -1,12 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\TorchCode.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\NPCBehaviour.cs">
     <Files>
-      <File FileName="Assets\Code\NPCBehaviour.cs" Line="25" Column="31" />
+      <File FileName="Assets\Code\DialogPlayer.cs" Line="87" Column="46" />
+      <File FileName="Assets\Code\NPCBehaviour.cs" Line="68" Column="55" />
       <File FileName="Assets\Code\PlayerDetection.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\PlayerMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\CameraSnap.cs" Line="1" Column="1" />
-      <File FileName="Assets\Code\TorchCode.cs" Line="27" Column="30" />
+      <File FileName="Assets\Code\PlayerMove.cs" Line="73" Column="25" />
+      <File FileName="Assets\Code\CameraSnap.cs" Line="35" Column="76" />
+      <File FileName="Assets\Code\TorchCode.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

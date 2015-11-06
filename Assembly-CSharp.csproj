@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Code\CameraRemoveClipping.cs" />
      <Compile Include="Assets\Code\CameraSnap.cs" />
+     <Compile Include="Assets\Code\DialogPlayer.cs" />
      <Compile Include="Assets\Code\GameManager.cs" />
      <Compile Include="Assets\Code\NPCBehaviour.cs" />
      <Compile Include="Assets\Code\PlayerDetection.cs" />

@@ -29,10 +29,10 @@ public class CameraSnap : MonoBehaviour {
 				
 				if (hallwayPosition.z > gameObject.transform.position.z) {
 					Debug.Log ("player behind middle of hallway");
-					gameObject.transform.Translate (new Vector3 (0, 0, hallwayPosition.z - player.transform.position.z));
+					gameObject.transform.Translate (new Vector3 (0, 0, hallwayPosition.z + player.transform.position.z));
 				} else if (hallwayPosition.z < gameObject.transform.position.z) {
 					Debug.Log ("player in front of middle of hallway");
-					gameObject.transform.Translate (new Vector3 (0, 0, hallwayPosition.z - player.transform.position.z));
+					gameObject.transform.Translate (new Vector3 (0, 0, hallwayPosition.z + player.transform.position.z));
 				}
 			} else {
 				
@@ -40,10 +40,10 @@ public class CameraSnap : MonoBehaviour {
 				
 				if (hallwayPosition.x > gameObject.transform.position.x) {
 					Debug.Log ("player behind middle of hallway");
-					gameObject.transform.Translate (new Vector3 (0, 0, gameObject.transform.position.x - hallwayPosition.x));
+					gameObject.transform.Translate (new Vector3 (0, 0, gameObject.transform.position.x + hallwayPosition.x));
 				} else if (hallwayPosition.x < gameObject.transform.position.x) {
 					Debug.Log ("player in front of middle of hallway");
-					gameObject.transform.Translate (new Vector3 (0, 0, gameObject.transform.position.x - hallwayPosition.x));
+					gameObject.transform.Translate (new Vector3 (0, 0, gameObject.transform.position.x + hallwayPosition.x));
 				}
 			}
 		}

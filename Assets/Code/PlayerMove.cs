@@ -45,9 +45,9 @@ public class PlayerMove : MonoBehaviour {
 		if (Input.GetKey (KeyCode.S)) {
 			slide = true;
 			if (Input.GetKey ("a")) {
-				leftOrRight = false;
-			} else if (Input.GetKey ("d")) {
 				leftOrRight = true;
+			} else if (Input.GetKey ("d")) {
+				leftOrRight = false;
 			}
 			if(Input.GetKey (KeyCode.LeftShift))
 				speed = (sprintSpeed * interpolate (Time.deltaTime/3, true))*2;
@@ -57,20 +57,20 @@ public class PlayerMove : MonoBehaviour {
 		} else {
 			if (Input.GetKey (KeyCode.LeftShift)) {
 				if (Input.GetKey ("a")) {
-					leftOrRight = false;
+					leftOrRight = true;
 					speed = sprintSpeed * interpolate (Time.deltaTime, false);
 				} else if (Input.GetKey ("d")) {
-					leftOrRight = true;
+					leftOrRight = false;
 					speed = sprintSpeed * interpolate (Time.deltaTime, false);
 				} else {
 					speed = maxSpeed * interpolate (Time.deltaTime, true);
 				}
 			} else {
 				if (Input.GetKey ("a")) {
-					leftOrRight = false;
+					leftOrRight = true;
 					speed = maxSpeed * interpolate (Time.deltaTime, false);
 				} else if (Input.GetKey ("d")) {
-					leftOrRight = true;
+					leftOrRight = false;
 					speed = maxSpeed * interpolate (Time.deltaTime, false);
 				} else {
 					speed = maxSpeed * interpolate (Time.deltaTime, true);
