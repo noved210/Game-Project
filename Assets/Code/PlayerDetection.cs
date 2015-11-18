@@ -36,10 +36,10 @@ public class PlayerDetection : MonoBehaviour {
 				if(ray.distance < attackRange){
 
 				}
-				Debug.Log("Player seen");
+				//Debug.Log("Player seen");
 			}else{
 				playerInView = false;
-				Debug.Log("Player not seen");
+				//Debug.Log("Player not seen");
 			}
 
 		}

@@ -49,8 +49,6 @@ public class NPCBehaviour : MonoBehaviour {
 		currentDestination = 0;
 		waitTimer = 0.0f;
 
-
-
 		gameObject.transform.LookAt (destinationList[currentDestination]);
 	}
 	
@@ -63,8 +61,8 @@ public class NPCBehaviour : MonoBehaviour {
 		enemyPositionTimer += enemySpeed * Time.deltaTime;
 		if (playerDetection.getSeen () && playerDetection.getInView ()) {
 
-			Debug.Log("Currently seen " + Vector3.Distance (gameObject.transform.position, playerPosition));
-			Debug.Log(gameObject.transform.position + " " + playerPosition);
+			//Debug.Log("Currently seen " + Vector3.Distance (gameObject.transform.position, playerPosition));
+			//Debug.Log(gameObject.transform.position + " " + playerPosition);
 			waitTimer = 0;
 			//get the players position because it is being seen
 			playerPosition = playerDetection.getPlayerPosition ();
@@ -72,7 +70,7 @@ public class NPCBehaviour : MonoBehaviour {
 			//gameObject.transform.Rotate(-145, 0, 180);
 
 			if(transform.position.x - playerPosition.x < closeEnough && playerPosition.x - transform.position.x < closeEnough){
-				Debug.Log("attacking player");
+				//Debug.Log("attacking player");
 			}else{
 				//move the NPC towards the player at it's speed
 				Vector3 movement = (transform.position - playerPosition);
@@ -86,16 +84,16 @@ public class NPCBehaviour : MonoBehaviour {
 
 		} else if (playerDetection.getSeen () && !playerDetection.getInView ()) {
 
-			Debug.Log("Currently looking " + Vector3.Distance (gameObject.transform.position, playerPosition));
-			Debug.Log(gameObject.transform.position + " " + playerPosition);
+			//Debug.Log("Currently looking " + Vector3.Distance (gameObject.transform.position, playerPosition));
+			//Debug.Log(gameObject.transform.position + " " + playerPosition);
 
 			//if the NPC is close enough to the player's last seen position then just wait around till the NPC 'forgets' about the player
 			if (transform.position.x - playerPosition.x < closeEnough && playerPosition.x - transform.position.x < closeEnough) {
-				Debug.Log("waiting to forget " + waitTimer);
+				//Debug.Log("waiting to forget " + waitTimer);
 				//wait for the NPC to forget
 				waitTimer += Time.deltaTime;
 				if (waitTimer > waitAtDestinationTime*3) {
-					Debug.Log("player forgotten");
+					//Debug.Log("player forgotten");
 					//set the 'setSeen' variable to false because the NPC forgot about the player
 					waitTimer = 0;
 					playerDetection.setSeen (false);
@@ -132,7 +130,7 @@ public class NPCBehaviour : MonoBehaviour {
 				fromPosition = transform.position;
 				waitTimer += Time.deltaTime;
 
-				Debug.Log("close enough");
+				//Debug.Log("close enough");
 
 				if (waitTimer > waitAtDestinationTime) {
 					//set the 'setSeen' variable to false because the NPC forgot about the player
@@ -142,11 +140,11 @@ public class NPCBehaviour : MonoBehaviour {
 
 					if (forwards) {
 					
-						Debug.Log ("Go forwards...");
+						//Debug.Log ("Go forwards...");
 					
 						currentDestination++;
 						if (currentDestination >= destinationList.Length) {
-							Debug.Log ("..I mean backwards");
+							//Debug.Log ("..I mean backwards");
 							forwards = !forwards;
 							currentDestination -= 2;
 						}
@@ -154,11 +152,11 @@ public class NPCBehaviour : MonoBehaviour {
 						enemyPositionTimer = 0;
 					} else {
 					
-						Debug.Log ("Go backwards...");
+						//Debug.Log ("Go backwards...");
 					
 						currentDestination--;
 						if (currentDestination < 0) {
-							Debug.Log ("..I mean forwards");
+							//Debug.Log ("..I mean forwards");
 						
 							forwards = !forwards;
 							currentDestination += 2;
@@ -171,7 +169,7 @@ public class NPCBehaviour : MonoBehaviour {
 				}
 			}else{
 				
-				Debug.Log("looking at shit");
+				//Debug.Log("looking at shit");
 				
 				gameObject.transform.LookAt (destinationList[currentDestination]);
 				gameObject.transform.Rotate(-90, 0, 180);
