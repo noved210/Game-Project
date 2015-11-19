@@ -45,16 +45,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Code\CameraRemoveClipping.cs" />
-     <Compile Include="Assets\Code\CameraSnap.cs" />
-     <Compile Include="Assets\Code\DialogPlayer.cs" />
-     <Compile Include="Assets\Code\GameManager.cs" />
-     <Compile Include="Assets\Code\NPCBehaviour.cs" />
-     <Compile Include="Assets\Code\PlayerDetection.cs" />
-     <Compile Include="Assets\Code\PlayerGravity.cs" />
-     <Compile Include="Assets\Code\PlayerHidingMechanic.cs" />
-     <Compile Include="Assets\Code\PlayerMove.cs" />
-     <Compile Include="Assets\Code\TorchCode.cs" />
+     <Compile Include="Assets\Scripts\CameraRemoveClipping.cs" />
+     <Compile Include="Assets\Scripts\CameraSnap.cs" />
+     <Compile Include="Assets\Scripts\DialogPlayer.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\HoldCharacter.cs" />
+     <Compile Include="Assets\Scripts\MovingPlatform2State.cs" />
+     <Compile Include="Assets\Scripts\MovingPlatform3State.cs" />
+     <Compile Include="Assets\Scripts\NPCBehaviour.cs" />
+     <Compile Include="Assets\Scripts\PlayerDeathBySpikes.cs" />
+     <Compile Include="Assets\Scripts\PlayerDetection.cs" />
+     <Compile Include="Assets\Scripts\PlayerGravity.cs" />
+     <Compile Include="Assets\Scripts\PlayerHidingMechanic.cs" />
+     <Compile Include="Assets\Scripts\PlayerMove.cs" />
+     <Compile Include="Assets\Scripts\TorchCode.cs" />
+     <Compile Include="Assets\Scripts\TriggerPlatformChange.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

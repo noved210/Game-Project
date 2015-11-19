@@ -9,6 +9,7 @@ public class NPCBehaviour : MonoBehaviour {
 	private bool forwards;
 	private bool shouldTurn;
 	private bool atVector;
+	private bool playerInSpace = false;
 	private float waitTimer = 0.0f;
 	private float enemyPositionTimer = 0.0f; 
 	private Vector3[] destinationList;
@@ -170,11 +171,16 @@ public class NPCBehaviour : MonoBehaviour {
 			}else{
 				
 				//Debug.Log("looking at shit");
-				
-				gameObject.transform.LookAt (destinationList[currentDestination]);
-				gameObject.transform.Rotate(-90, 0, 180);
+				if(!playerInSpace){
+					gameObject.transform.LookAt (destinationList[currentDestination]);
+					gameObject.transform.Rotate(-90, 0, 180);
+				}
 			}
 		}
+
+
+
+
 	}
 
 	//Get the point to the NCP
@@ -191,6 +197,23 @@ public class NPCBehaviour : MonoBehaviour {
 		}
 
 		return index;
+	}
+
+	void OnTriggerStay(Collider trigger){
+
+		if (trigger.gameObject.tag == "PlayerSpace") {
+			playerInSpace = true;
+			//needs work on getting the enemy to look at the right position without looking up and down
+			Vector3 lookAtPos = new Vector3(trigger.gameObject.transform.position.x, 0, 0);
+			transform.LookAt(lookAtPos);
+		}
+	}
+
+	void OnTriggerExit(Collider trigger){
+		
+		if (trigger.gameObject.tag == "PlayerSpace") {
+			playerInSpace = false;
+		}
 	}
 
 }

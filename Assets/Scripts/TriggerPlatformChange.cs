@@ -34,7 +34,7 @@ public class TriggerPlatformChange : MonoBehaviour {
         }
         else
         {
-            Debug.Log((Time.time - startTime));
+            //Debug.Log((Time.time - startTime));
         }
     }
 }

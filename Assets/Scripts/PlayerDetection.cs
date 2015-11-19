@@ -43,8 +43,11 @@ public class PlayerDetection : MonoBehaviour {
 			}
 
 		}
+
 		
 	}
+
+
 
 
 	//ensure that whatever is looking for the player is in the middle of the hallway space
