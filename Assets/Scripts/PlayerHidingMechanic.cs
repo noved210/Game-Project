@@ -36,12 +36,18 @@ public class PlayerHidingMechanic : MonoBehaviour {
 			if(playerHiding){
 				if(Physics.Raycast(transform.position, -transform.forward, out ray)){
 					distaceFromWall = ray.distance;
-					transform.Translate(transform.forward*distaceFromWall);
+					transform.Translate(transform.forward*(distaceFromWall*(0.90f)));
 				}
 			}else{
-				transform.Translate(-transform.forward*distaceFromWall);
+				//transform.Translate(-transform.forward*distaceFromWall*1.5f);
 				distaceFromWall = 0;
 			}
 		}
 	}
+
+	void OnTriggerExit(){
+		playerHiding = false;
+	}
+
+	public bool getPlayerHiding(){return playerHiding;}
 }

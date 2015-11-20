@@ -62,6 +62,8 @@ public class NPCBehaviour : MonoBehaviour {
 		enemyPositionTimer += enemySpeed * Time.deltaTime;
 		if (playerDetection.getSeen () && playerDetection.getInView ()) {
 
+			Debug.Log("Seeing player");
+
 			//Debug.Log("Currently seen " + Vector3.Distance (gameObject.transform.position, playerPosition));
 			//Debug.Log(gameObject.transform.position + " " + playerPosition);
 			waitTimer = 0;
@@ -85,8 +87,17 @@ public class NPCBehaviour : MonoBehaviour {
 
 		} else if (playerDetection.getSeen () && !playerDetection.getInView ()) {
 
+			Debug.Log("Looking for player");
+
 			//Debug.Log("Currently looking " + Vector3.Distance (gameObject.transform.position, playerPosition));
 			//Debug.Log(gameObject.transform.position + " " + playerPosition);
+			
+			if (playerDetection.getBehind ()) {
+				gameObject.transform.Rotate(0, 0, -180);
+				playerDetection.enemyTurned();
+			}
+
+
 
 			//if the NPC is close enough to the player's last seen position then just wait around till the NPC 'forgets' about the player
 			if (transform.position.x - playerPosition.x < closeEnough && playerPosition.x - transform.position.x < closeEnough) {
@@ -114,10 +125,15 @@ public class NPCBehaviour : MonoBehaviour {
 				currentDestination = -1;
 			}
 		} else {
+
+			Debug.Log("Wondering b/t spaces");
+
 			//was at the players last position, now needs to go back to the closest node taht it can travel to
 			if (currentDestination == -1) {
 				currentDestination = getClosestPoint ();
 				fromPosition = transform.position;
+				gameObject.transform.LookAt (destinationList[currentDestination]);
+				gameObject.transform.Rotate(-90, 0, 180);
 			}
 
 			//move to the node that it should
@@ -168,18 +184,8 @@ public class NPCBehaviour : MonoBehaviour {
 
 
 				}
-			}else{
-				
-				//Debug.Log("looking at shit");
-				if(!playerInSpace){
-					gameObject.transform.LookAt (destinationList[currentDestination]);
-					gameObject.transform.Rotate(-90, 0, 180);
-				}
 			}
 		}
-
-
-
 
 	}
 
@@ -198,14 +204,14 @@ public class NPCBehaviour : MonoBehaviour {
 
 		return index;
 	}
-
-	void OnTriggerStay(Collider trigger){
+	/*
+	void OnTriggerEnter(Collider trigger){
 
 		if (trigger.gameObject.tag == "PlayerSpace") {
 			playerInSpace = true;
-			//needs work on getting the enemy to look at the right position without looking up and down
-			Vector3 lookAtPos = new Vector3(trigger.gameObject.transform.position.x, 0, 0);
-			transform.LookAt(lookAtPos);
+			//get if the player is behind the enemy and turn the enemy around
+			gameObject.transform.LookAt(trigger.gameObject.transform.position);
+			gameObject.transform.Rotate(-90, 0, 180);
 		}
 	}
 
@@ -215,5 +221,6 @@ public class NPCBehaviour : MonoBehaviour {
 			playerInSpace = false;
 		}
 	}
+	*/
 
 }

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlayerDetection : MonoBehaviour {
 
-	private RaycastHit ray;
-	private bool playerSeen = false, playerInView = false;
+	private RaycastHit ray, behind;
+	private bool playerSeen = false, playerInView = false, playerBehind = false;
 	private Vector3 playerPosition;
 
 	public float distance = 1.0f;
@@ -20,6 +20,7 @@ public class PlayerDetection : MonoBehaviour {
 	void Update () {
 
 		Debug.DrawRay(transform.position, -transform.right*distance, Color.red);
+		Debug.DrawRay(transform.position, transform.right*(distance/2), Color.red);
 		//Debug.Log("Draw Ray");
 
 		//create raycast in the forward direction at theta
@@ -44,6 +45,28 @@ public class PlayerDetection : MonoBehaviour {
 
 		}
 
+
+
+		//create raycast in the forward direction at theta
+		if (Physics.Raycast (transform.position, transform.right*(distance/2) , out behind)) {
+
+
+			//Debug.Log("player seen from behind");
+
+			//Debug.Log("Hitting something " + ray.collider.gameObject.tag);
+			//playerInView = false;
+			//if the ray hits the player then set the player to be seen and currently in view
+			if(behind.collider.gameObject.tag == "Player" && behind.distance <= distance/2){
+
+
+				Debug.Log("player seen from behind and its the player!! turn around");
+				//player behind is true
+				playerBehind = true;
+				playerSeen = true;
+			}
+			
+		}
+
 		
 	}
 
@@ -58,4 +81,6 @@ public class PlayerDetection : MonoBehaviour {
 	public void setInView(bool playerInView){this.playerInView = playerInView;}
 	public bool getInView(){return playerInView;}
 	public Vector3 getPlayerPosition(){return playerPosition;}
+	public bool getBehind(){return playerBehind;}
+	public void enemyTurned(){playerBehind = false;}
 }
