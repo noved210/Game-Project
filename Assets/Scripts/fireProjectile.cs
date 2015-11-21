@@ -14,7 +14,7 @@ public class fireProjectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			Debug.Log ("FIRED");
+			//Debug.log ("FIRED");
 			GameObject projClone = Instantiate(projectileBase, transform.position + new Vector3(2, 0, 0), transform.rotation) as GameObject;
 			Rigidbody rb = projClone.GetComponent<Rigidbody>();
 			rb.velocity +=  new Vector3(20, 0, 0);

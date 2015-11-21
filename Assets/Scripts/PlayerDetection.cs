@@ -21,12 +21,12 @@ public class PlayerDetection : MonoBehaviour {
 
 		Debug.DrawRay(transform.position, -transform.right*distance, Color.red);
 		Debug.DrawRay(transform.position, transform.right*(distance/2), Color.red);
-		//Debug.Log("Draw Ray");
+		//Debug.log("Draw Ray");
 
 		//create raycast in the forward direction at theta
 		if (Physics.Raycast (transform.position, -transform.right*distance , out ray)) {
 
-			//Debug.Log("Hitting something " + ray.collider.gameObject.tag);
+			//Debug.log("Hitting something " + ray.collider.gameObject.tag);
 			//playerInView = false;
 			//if the ray hits the player then set the player to be seen and currently in view
 			if(ray.collider.gameObject.tag == "Player" && ray.distance <= distance){
@@ -37,10 +37,10 @@ public class PlayerDetection : MonoBehaviour {
 				if(ray.distance < attackRange){
 
 				}
-				//Debug.Log("Player seen");
+				//Debug.log("Player seen");
 			}else{
 				playerInView = false;
-				//Debug.Log("Player not seen");
+				//Debug.log("Player not seen");
 			}
 
 		}
@@ -51,15 +51,15 @@ public class PlayerDetection : MonoBehaviour {
 		if (Physics.Raycast (transform.position, transform.right*(distance/2) , out behind)) {
 
 
-			//Debug.Log("player seen from behind");
+			//Debug.log("player seen from behind");
 
-			//Debug.Log("Hitting something " + ray.collider.gameObject.tag);
+			//Debug.log("Hitting something " + ray.collider.gameObject.tag);
 			//playerInView = false;
 			//if the ray hits the player then set the player to be seen and currently in view
 			if(behind.collider.gameObject.tag == "Player" && behind.distance <= distance/2){
 
 
-				Debug.Log("player seen from behind and its the player!! turn around");
+				//Debug.log("player seen from behind and its the player!! turn around");
 				//player behind is true
 				playerBehind = true;
 				playerSeen = true;

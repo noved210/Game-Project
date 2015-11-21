@@ -80,7 +80,7 @@ public class PlayerMove : MonoBehaviour {
 
 		player.Move (-this.transform.right * speed *Time.deltaTime);
 
-		//Debug.Log (speed);
+		//Debug.log (speed);
 	}
 
 	//Interpolation, f(x) = log(x^e)

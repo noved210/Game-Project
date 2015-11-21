@@ -16,30 +16,24 @@ public class characterStats : MonoBehaviour {
 	{
 		health -= damage;
 		if (health <= 0) {
-			if(this.name == "Player")
-			{
-				//playerDeath
-			}
-			else
-			{
-				Destroy(gameObject);
-			}
+			Die ();
 		}
 	}
 	void OnControllerColliderHit (ControllerColliderHit col)
 	{
-		//Debug.Log("PlayerCollision detected");
+		//Debug.log("PlayerCollision detected");
 
 		if(col.gameObject.tag == "Mummy")
 		{
-			col.gameObject.GetComponent<characterStats>().applyDamage(damage);
-			Rigidbody rb = col.gameObject.GetComponent<BoxCollider>().attachedRigidbody;
-			this.gameObject.GetComponent<CharacterController>().attachedRigidbody.velocity -=  new Vector3(5, 0, 0);
-			Debug.Log("Player Health:" + col.gameObject.GetComponent<characterStats>().health);
-
+			Debug.Log("PlayerCollision detected");
+			//applyDamage(col.gameObject.GetComponent<NPCStats>().damage);
+			transform.position = transform.position - (new Vector3(1, 0, 0));
 		}
+	}
 
-
+	void Die() {
+		Application.LoadLevel(Application.loadedLevel);
+		
 	}
 	// Update is called once per frame
 	void Update () {

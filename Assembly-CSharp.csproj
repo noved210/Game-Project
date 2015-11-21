@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\MovingPlatform2State.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform3State.cs" />
      <Compile Include="Assets\Scripts\NPCBehaviour.cs" />
+     <Compile Include="Assets\Scripts\NPCStats.cs" />
      <Compile Include="Assets\Scripts\PlayerDeathBySpikes.cs" />
      <Compile Include="Assets\Scripts\PlayerDetection.cs" />
      <Compile Include="Assets\Scripts\PlayerGravity.cs" />
