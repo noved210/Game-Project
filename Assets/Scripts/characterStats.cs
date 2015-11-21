@@ -14,19 +14,20 @@ public class characterStats : MonoBehaviour {
 	}
 	public void applyDamage(float damage)
 	{
+		transform.position = transform.position - (new Vector3(1, 0, 0));
 		health -= damage;
 		if (health <= 0) {
 			Die ();
 		}
 	}
-	void OnControllerColliderHit (ControllerColliderHit col)
+	void OnControllerColliderHit (ControllerColliderHit hit)
 	{
-		//Debug.log("PlayerCollision detected");
 
-		if(col.gameObject.tag == "Mummy")
+		if(hit.gameObject.tag == "Mummy")
 		{
 			Debug.Log("PlayerCollision detected");
-			//applyDamage(col.gameObject.GetComponent<NPCStats>().damage);
+			applyDamage(hit.gameObject.GetComponent<NPCStats>().damage);
+
 			transform.position = transform.position - (new Vector3(1, 0, 0));
 		}
 	}

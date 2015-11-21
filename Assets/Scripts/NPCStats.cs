@@ -22,6 +22,15 @@ public class NPCStats : MonoBehaviour {
 		}
 
 	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject.tag == "Player") {
+			col.gameObject.GetComponent<characterStats>().applyDamage (damage);
+
+		}
+	}
+
 	void Update () {
 		
 	}
