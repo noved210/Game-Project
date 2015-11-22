@@ -39,8 +39,8 @@ public class NPCBehaviour : MonoBehaviour {
 
 		transform.position = destinationList[getClosestPoint()];
 
-		//Debug.Log (gameObject.transform.position + " " + destinationList [getClosestPoint ()]);
-		//Debug.Log(Vector3.Distance (gameObject.transform.position, destinationList [currentDestination]));
+		//Debug.log (gameObject.transform.position + " " + destinationList [getClosestPoint ()]);
+		//Debug.log(Vector3.Distance (gameObject.transform.position, destinationList [currentDestination]));
 
 		fromPosition = transform.position;
 
@@ -58,14 +58,14 @@ public class NPCBehaviour : MonoBehaviour {
 
 		//if the player has been seen and is currently in view
 
-		//Debug.Log (playerDetection.getSeen() + " " + playerDetection.getInView());
+		//Debug.log (playerDetection.getSeen() + " " + playerDetection.getInView());
 		enemyPositionTimer += enemySpeed * Time.deltaTime;
 		if (playerDetection.getSeen () && playerDetection.getInView ()) {
 
-			Debug.Log("Seeing player");
+			//Debug.log("Seeing player");
 
-			//Debug.Log("Currently seen " + Vector3.Distance (gameObject.transform.position, playerPosition));
-			//Debug.Log(gameObject.transform.position + " " + playerPosition);
+			//Debug.log("Currently seen " + Vector3.Distance (gameObject.transform.position, playerPosition));
+			//Debug.log(gameObject.transform.position + " " + playerPosition);
 			waitTimer = 0;
 			//get the players position because it is being seen
 			playerPosition = playerDetection.getPlayerPosition ();
@@ -73,7 +73,7 @@ public class NPCBehaviour : MonoBehaviour {
 			//gameObject.transform.Rotate(-145, 0, 180);
 
 			if(transform.position.x - playerPosition.x < closeEnough && playerPosition.x - transform.position.x < closeEnough){
-				//Debug.Log("attacking player");
+				//Debug.log("attacking player");
 			}else{
 				//move the NPC towards the player at it's speed
 				Vector3 movement = (transform.position - playerPosition);
@@ -87,10 +87,10 @@ public class NPCBehaviour : MonoBehaviour {
 
 		} else if (playerDetection.getSeen () && !playerDetection.getInView ()) {
 
-			Debug.Log("Looking for player");
+			//Debug.log("Looking for player");
 
-			//Debug.Log("Currently looking " + Vector3.Distance (gameObject.transform.position, playerPosition));
-			//Debug.Log(gameObject.transform.position + " " + playerPosition);
+			//Debug.log("Currently looking " + Vector3.Distance (gameObject.transform.position, playerPosition));
+			//Debug.log(gameObject.transform.position + " " + playerPosition);
 			
 			if (playerDetection.getBehind ()) {
 				gameObject.transform.Rotate(0, 0, -180);
@@ -101,11 +101,11 @@ public class NPCBehaviour : MonoBehaviour {
 
 			//if the NPC is close enough to the player's last seen position then just wait around till the NPC 'forgets' about the player
 			if (transform.position.x - playerPosition.x < closeEnough && playerPosition.x - transform.position.x < closeEnough) {
-				//Debug.Log("waiting to forget " + waitTimer);
+				//Debug.log("waiting to forget " + waitTimer);
 				//wait for the NPC to forget
 				waitTimer += Time.deltaTime;
 				if (waitTimer > waitAtDestinationTime*3) {
-					//Debug.Log("player forgotten");
+					//Debug.log("player forgotten");
 					//set the 'setSeen' variable to false because the NPC forgot about the player
 					waitTimer = 0;
 					playerDetection.setSeen (false);
@@ -126,7 +126,7 @@ public class NPCBehaviour : MonoBehaviour {
 			}
 		} else {
 
-			Debug.Log("Wondering b/t spaces");
+			//Debug.log("Wondering b/t spaces");
 
 			//was at the players last position, now needs to go back to the closest node taht it can travel to
 			if (currentDestination == -1) {
@@ -147,7 +147,7 @@ public class NPCBehaviour : MonoBehaviour {
 				fromPosition = transform.position;
 				waitTimer += Time.deltaTime;
 
-				//Debug.Log("close enough");
+				//Debug.log("close enough");
 
 				if (waitTimer > waitAtDestinationTime) {
 					//set the 'setSeen' variable to false because the NPC forgot about the player
@@ -157,11 +157,11 @@ public class NPCBehaviour : MonoBehaviour {
 
 					if (forwards) {
 					
-						//Debug.Log ("Go forwards...");
+						//Debug.log ("Go forwards...");
 					
 						currentDestination++;
 						if (currentDestination >= destinationList.Length) {
-							//Debug.Log ("..I mean backwards");
+							//Debug.log ("..I mean backwards");
 							forwards = !forwards;
 							currentDestination -= 2;
 						}
@@ -169,11 +169,11 @@ public class NPCBehaviour : MonoBehaviour {
 						enemyPositionTimer = 0;
 					} else {
 					
-						//Debug.Log ("Go backwards...");
+						//Debug.log ("Go backwards...");
 					
 						currentDestination--;
 						if (currentDestination < 0) {
-							//Debug.Log ("..I mean forwards");
+							//Debug.log ("..I mean forwards");
 						
 							forwards = !forwards;
 							currentDestination += 2;

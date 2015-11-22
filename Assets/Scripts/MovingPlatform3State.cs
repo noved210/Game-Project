@@ -32,7 +32,7 @@ public class MovingPlatform3State : MonoBehaviour
     //reset time is reached
     void ChangeTarget()
     {
-        Debug.Log(currentState);
+        //Debug.log(currentState);
         if (currentState == "Moving To Position 1")
         {
             currentState = "Moving To Position 2";

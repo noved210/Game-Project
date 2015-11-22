@@ -13,7 +13,7 @@ public class TriggerPlatformChange : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hellotesting123");
+        //Debug.log("hellotesting123");
         if (other.gameObject.tag == "Player" && uniqInstance == false)
         {
             startTime = Time.time;
@@ -34,7 +34,7 @@ public class TriggerPlatformChange : MonoBehaviour {
         }
         else
         {
-            //Debug.Log((Time.time - startTime));
+            //Debug.log((Time.time - startTime));
         }
     }
 }

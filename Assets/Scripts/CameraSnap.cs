@@ -23,7 +23,7 @@ public class CameraSnap : MonoBehaviour {
 	//Snap the player to the center of the hallway (depth wise)
 	void OnTriggerStay(Collider trigger){
 
-		Debug.Log (playerHidingMechanic.getPlayerHiding ());
+		//Debug.log (playerHidingMechanic.getPlayerHiding ());
 
 		if (!playerHidingMechanic.getPlayerHiding ()) {
 
@@ -31,24 +31,24 @@ public class CameraSnap : MonoBehaviour {
 				Vector3 hallwayPosition = trigger.gameObject.transform.position;
 				if (cameraOrientation) {
 				
-					Debug.Log ("Direction is looking down the Z axis " + hallwayPosition.z + " " + gameObject.transform.position.z);
+					//Debug.log ("Direction is looking down the Z axis " + hallwayPosition.z + " " + gameObject.transform.position.z);
 				
 					if (hallwayPosition.z > gameObject.transform.position.z) {
-						Debug.Log ("player behind middle of hallway");
+						//Debug.log ("player behind middle of hallway");
 						gameObject.transform.Translate (new Vector3 (0, 0, hallwayPosition.z + player.transform.position.z));
 					} else if (hallwayPosition.z < gameObject.transform.position.z) {
-						Debug.Log ("player in front of middle of hallway");
+						//Debug.log ("player in front of middle of hallway");
 						gameObject.transform.Translate (new Vector3 (0, 0, hallwayPosition.z + player.transform.position.z));
 					}
 				} else {
 				
-					Debug.Log ("Direction is looking down the X axis " + hallwayPosition.x + " " + gameObject.transform.position.x);
+					//Debug.log ("Direction is looking down the X axis " + hallwayPosition.x + " " + gameObject.transform.position.x);
 				
 					if (hallwayPosition.x > gameObject.transform.position.x) {
-						Debug.Log ("player behind middle of hallway");
+						//Debug.log ("player behind middle of hallway");
 						gameObject.transform.Translate (new Vector3 (0, 0, gameObject.transform.position.x + hallwayPosition.x));
 					} else if (hallwayPosition.x < gameObject.transform.position.x) {
-						Debug.Log ("player in front of middle of hallway");
+						//Debug.log ("player in front of middle of hallway");
 						gameObject.transform.Translate (new Vector3 (0, 0, gameObject.transform.position.x + hallwayPosition.x));
 					}
 				}
