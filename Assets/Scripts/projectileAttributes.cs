@@ -17,10 +17,10 @@ public class projectileAttributes : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col)
 	{
-
-		if(col.gameObject.GetComponent<characterStats>())
+		Debug.Log ("Projectile Collision Detected");
+		if(col.gameObject.GetComponent<NPCStats>())
 		{
-			col.gameObject.GetComponent<characterStats>().applyDamage(damage, new Vector3(0, 0, 0));
+			col.gameObject.GetComponent<NPCStats>().applyDamage(damage);
 			//Debug.log("Target Health:" + col.gameObject.GetComponent<characterStats>().health);
 			Destroy (gameObject);
 		}
