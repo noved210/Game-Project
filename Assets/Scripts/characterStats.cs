@@ -12,9 +12,9 @@ public class characterStats : MonoBehaviour {
 	void Start () {
 		
 	}
-	public void applyDamage(float damage)
+	public void applyDamage(float damage, Vector3 force)
 	{
-		transform.position = transform.position - (new Vector3(1, 0, 0));
+		transform.position = transform.position + force;
 		health -= damage;
 		if (health <= 0) {
 			Die ();
@@ -25,10 +25,37 @@ public class characterStats : MonoBehaviour {
 
 		if(hit.gameObject.tag == "Mummy")
 		{
-			Debug.Log("PlayerCollision detected");
-			applyDamage(hit.gameObject.GetComponent<NPCStats>().damage);
+			Debug.Log ("Hit the mummy");
 
-			transform.position = transform.position - (new Vector3(1, 0, 0));
+			Ray ray = new Ray(transform.position, transform.position);
+			RaycastHit rayHit;
+			
+			Physics.Raycast(ray, out rayHit);
+			
+			Vector3 normal = rayHit.normal;
+			normal = rayHit.transform.TransformDirection (normal);
+			
+			if(normal == gameObject.transform.forward)
+			{
+				Debug.Log ("Hit from front");
+				applyDamage (damage, new Vector3(-1, 0, 0));
+			}
+			else if(normal == -gameObject.transform.forward)
+			{
+				Debug.Log ("Hit from Rear");
+				applyDamage (damage, new Vector3(1, 0, 0));
+			}
+			else if(normal == -gameObject.transform.up)
+			{
+				Debug.Log ("Hit from Bellow");
+				applyDamage (damage, new Vector3(0, 3, 0));
+			}
+			else if(normal == gameObject.transform.up)
+			{
+				Debug.Log ("Hit from Above");
+				applyDamage (damage, new Vector3(0, 3, 0));
+			}
+
 		}
 	}
 

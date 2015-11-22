@@ -20,7 +20,7 @@ public class projectileAttributes : MonoBehaviour {
 
 		if(col.gameObject.GetComponent<characterStats>())
 		{
-			col.gameObject.GetComponent<characterStats>().applyDamage(damage);
+			col.gameObject.GetComponent<characterStats>().applyDamage(damage, new Vector3(0, 0, 0));
 			//Debug.log("Target Health:" + col.gameObject.GetComponent<characterStats>().health);
 			Destroy (gameObject);
 		}
