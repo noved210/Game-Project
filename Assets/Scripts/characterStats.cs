@@ -68,13 +68,13 @@ public class characterStats : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.Alpha1)) {
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKey (KeyCode.Alpha1)) {
 			weaponSelected = 0;
 			Debug.Log ("Weapon 1 selected");
-		} else if (Input.GetKey (KeyCode.Alpha2)) {
+		} else if (Input.GetKey (KeyCode.LeftShift) && Input.GetKey (KeyCode.Alpha2)) {
 			weaponSelected = 1;
 			Debug.Log ("Weapon 2 selected");
-		} else if (Input.GetKey (KeyCode.Alpha3)) {
+		} else if (Input.GetKey (KeyCode.LeftShift) && Input.GetKey (KeyCode.Alpha3)) {
 			weaponSelected = 2;
 			Debug.Log ("Weapon 3 selected");
 		}
