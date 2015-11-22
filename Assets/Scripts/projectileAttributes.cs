@@ -6,6 +6,7 @@ public class projectileAttributes : MonoBehaviour {
 	//Rigidbody rb = GameObject.GetComponent<Rigidbody>();
 	public float damage;
 	// Use this for initialization
+	public string type = "base";
 	void Start () {
 		
 	}
@@ -18,9 +19,22 @@ public class projectileAttributes : MonoBehaviour {
 	void OnCollisionEnter (Collision col)
 	{
 		Debug.Log ("Projectile Collision Detected");
+		string typeTrue = System.Text.RegularExpressions.Regex.Replace (type, "(A-Z)", "(a-z)");
+		Debug.Log ("projectileTyle: " + typeTrue);
 		if(col.gameObject.GetComponent<NPCStats>())
 		{
-			col.gameObject.GetComponent<NPCStats>().applyDamage(damage);
+			if(typeTrue=="base"){
+				col.gameObject.GetComponent<NPCStats>().applyDamage(damage);
+			}
+			else if (typeTrue=="stun")
+			{
+				col.gameObject.GetComponent<NPCStats>().speed = col.gameObject.GetComponent<NPCStats>().speed/3;
+			}
+			else if(typeTrue=="distract")
+			{
+
+			}
+			
 			//Debug.log("Target Health:" + col.gameObject.GetComponent<characterStats>().health);
 			Destroy (gameObject);
 		}

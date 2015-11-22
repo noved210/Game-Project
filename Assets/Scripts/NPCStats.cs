@@ -22,6 +22,9 @@ public class NPCStats : MonoBehaviour {
 		}
 
 	}
+	public void applyStun(){
+
+	}
 
 	void OnTriggerEnter(Collider col)
 	{
