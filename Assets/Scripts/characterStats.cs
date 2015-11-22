@@ -7,7 +7,10 @@ public class characterStats : MonoBehaviour {
 	public float speed = 0.25f;
 	public float damage = 1;
 	public float detection = 0;
-
+	public int baseAmmo = 10;
+	public int stunAmmo = 0;
+	public int distractAmmo = 0;
+	public int weaponSelected = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -65,6 +68,16 @@ public class characterStats : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-	
+		if (Input.GetKey (KeyCode.Alpha1)) {
+			weaponSelected = 0;
+			Debug.Log ("Weapon 1 selected");
+		} else if (Input.GetKey (KeyCode.Alpha2)) {
+			weaponSelected = 1;
+			Debug.Log ("Weapon 2 selected");
+		} else if (Input.GetKey (KeyCode.Alpha3)) {
+			weaponSelected = 2;
+			Debug.Log ("Weapon 3 selected");
+		}
+
 	}
 }
