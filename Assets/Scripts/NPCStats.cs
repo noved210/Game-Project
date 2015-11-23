@@ -13,13 +13,16 @@ public class NPCStats : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void applyDamage(float amount)
+	public void applyDamage(float amount)
 	{
 		health -= amount;
 		if (health <= 0) {
 			//insert animation here
 			Destroy (gameObject);
 		}
+
+	}
+	public void applyStun(){
 
 	}
 
