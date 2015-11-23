@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CameraRemoveClipping.cs" />
      <Compile Include="Assets\Scripts\CameraSnap.cs" />
      <Compile Include="Assets\Scripts\DialogPlayer.cs" />
+     <Compile Include="Assets\Scripts\DrillAnimation.cs" />
      <Compile Include="Assets\Scripts\EquiptmentSwap.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HoldCharacter.cs" />

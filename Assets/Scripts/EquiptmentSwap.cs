@@ -5,17 +5,14 @@ public class EquiptmentSwap : MonoBehaviour {
 
 	public GameObject[] equipment;
 	private int currentSelection, selectionMax;
-
-	private Mesh equipmentMesh;
+	private GameObject currentGameObject;
 
 	// Use this for initialization
 	void Start () {
 		currentSelection = 0;
 		selectionMax = equipment.Length;
-		gameObject.AddComponent<MeshFilter> ();
-		gameObject.AddComponent<MeshRenderer> ();
-		equipmentMesh = equipment[currentSelection].GetComponent<MeshFilter> ().sharedMesh;
-		gameObject.GetComponent<MeshFilter> ().mesh = equipmentMesh;
+		currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+		currentGameObject.transform.parent = gameObject.transform;
 	}
 	
 	// Update is called once per frame
@@ -27,8 +24,9 @@ public class EquiptmentSwap : MonoBehaviour {
 			if(currentSelection >= selectionMax){
 				currentSelection = 0;
 			}
-			equipmentMesh = equipment[currentSelection].GetComponent<MeshFilter> ().sharedMesh;
-			gameObject.GetComponent<MeshFilter> ().mesh = equipmentMesh;
+			Destroy(currentGameObject);
+			currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+			currentGameObject.transform.parent = gameObject.transform;
 		}
 
 		else if (Input.GetKeyDown (KeyCode.DownArrow)) {
@@ -36,8 +34,9 @@ public class EquiptmentSwap : MonoBehaviour {
 			if(currentSelection < 0){
 				currentSelection = selectionMax;
 			}
-			equipmentMesh = equipment[currentSelection].GetComponent<MeshFilter> ().sharedMesh;
-			gameObject.GetComponent<MeshFilter> ().mesh = equipmentMesh;
+			Destroy(currentGameObject);
+			currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+			currentGameObject.transform.parent = gameObject.transform;
 		}
 
 	}
