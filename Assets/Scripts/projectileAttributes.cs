@@ -29,10 +29,12 @@ public class projectileAttributes : MonoBehaviour {
 			else if (typeTrue=="stun")
 			{
 				col.gameObject.GetComponent<NPCStats>().speed = col.gameObject.GetComponent<NPCStats>().speed/3;
+				Debug.Log (col.gameObject.tag + " speed = " + col.gameObject.GetComponent<NPCStats>().speed);
+				effectTick ("stun", col.gameObject);
 			}
 			else if(typeTrue=="distract")
 			{
-
+				//distraction script
 			}
 			
 			//Debug.log("Target Health:" + col.gameObject.GetComponent<characterStats>().health);
@@ -40,4 +42,16 @@ public class projectileAttributes : MonoBehaviour {
 		}
 		Destroy (gameObject);
 	}
+
+	IEnumerator effectTick(string effect, GameObject affectedObject)
+	{
+		if (effect == "stun") {
+			yield return new WaitForSeconds (3f);
+			affectedObject.GetComponent<NPCStats>().speed = affectedObject.GetComponent<NPCStats>().speed*3;
+			Debug.Log (affectedObject.tag + " speed = " + affectedObject.GetComponent<NPCStats>().speed);
+		} else if (effect == "distract") {
+			//distract effect
+		}
+	}
+
 }

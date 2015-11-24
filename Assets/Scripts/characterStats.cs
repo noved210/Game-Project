@@ -8,9 +8,12 @@ public class characterStats : MonoBehaviour {
 	public float damage = 1;
 	public float detection = 0;
 	public int baseAmmo = 10;
-	public int stunAmmo = 0;
+	public int stunAmmo = 5;
 	public int distractAmmo = 0;
 	public int weaponSelected = 0;
+	//Check maxAmmo whever adding ammo from pickup
+	public int maxAmmo = 10;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -34,31 +37,34 @@ public class characterStats : MonoBehaviour {
 			RaycastHit rayHit;
 			
 			Physics.Raycast(ray, out rayHit);
-			
+			Debug.Log ("Ray hit:"+ rayHit);
 			Vector3 normal = rayHit.normal;
 			normal = rayHit.transform.TransformDirection (normal);
-			
-			if(normal == gameObject.transform.forward)
-			{
-				Debug.Log ("Hit from front");
-				applyDamage (damage, new Vector3(-1, 0, 0));
-			}
-			else if(normal == -gameObject.transform.forward)
-			{
-				Debug.Log ("Hit from Rear");
-				applyDamage (damage, new Vector3(1, 0, 0));
-			}
-			else if(normal == -gameObject.transform.up)
-			{
-				Debug.Log ("Hit from Bellow");
-				applyDamage (damage, new Vector3(0, 3, 0));
-			}
-			else if(normal == gameObject.transform.up)
-			{
-				Debug.Log ("Hit from Above");
-				applyDamage (damage, new Vector3(0, 3, 0));
-			}
-
+			//if(rayHit.exists){
+				if(normal == gameObject.transform.forward)
+				{
+					Debug.Log ("Hit from front");
+					applyDamage (damage, new Vector3(-1, 0, 0));
+				}
+				else if(normal == -gameObject.transform.forward)
+				{
+					Debug.Log ("Hit from Rear");
+					applyDamage (damage, new Vector3(1, 0, 0));
+				}
+				else if(normal == -gameObject.transform.up)
+				{
+					Debug.Log ("Hit from Bellow");
+					applyDamage (damage, new Vector3(0, 3, 0));
+				}
+				else if(normal == gameObject.transform.up)
+				{
+					Debug.Log ("Hit from Above");
+					applyDamage (damage, new Vector3(0, 3, 0));
+				}
+			/*}
+			else{
+				Debug.Log ("No RayHit Detected");
+			}*/
 		}
 	}
 
@@ -66,7 +72,7 @@ public class characterStats : MonoBehaviour {
 		Application.LoadLevel(Application.loadedLevel);
 		
 	}
-	// Update is called once per frame
+
 	void Update () {
 		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKey (KeyCode.Alpha1)) {
 			weaponSelected = 0;
@@ -80,4 +86,5 @@ public class characterStats : MonoBehaviour {
 		}
 
 	}
+
 }

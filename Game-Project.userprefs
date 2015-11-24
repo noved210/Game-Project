@@ -1,12 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/fireProjectile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/characterStats.cs">
     <Files>
       <File FileName="Assets/Scripts/NPCStats.cs" Line="62" Column="10" />
-      <File FileName="Assets/Scripts/characterStats.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/fireProjectile.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/characterStats.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/fireProjectile.cs" Line="47" Column="11" />
       <File FileName="Assets/Scripts/PlayerMove.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/projectileAttributes.cs" Line="35" Column="5" />
+      <File FileName="Assets/Scripts/projectileAttributes.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

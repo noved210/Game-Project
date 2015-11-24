@@ -38,12 +38,12 @@ public class NPCStats : MonoBehaviour {
 			Vector3 normal = rayHit.normal;
 			normal = rayHit.transform.TransformDirection (normal);
 
-			if(normal == gameObject.transform.forward)
+			if(normal == gameObject.transform.right)
 			{
 				Debug.Log ("MUMMY - Hit from front");
 				col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(-4, 0, 0));
 			}
-			else if(normal == -gameObject.transform.forward)
+			else if(normal == -gameObject.transform.right)
 			{
 				Debug.Log ("MUMMY - Hit from Rear");
 				col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(1, 0, 0));
