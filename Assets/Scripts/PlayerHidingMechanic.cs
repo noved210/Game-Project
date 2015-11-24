@@ -6,6 +6,7 @@ public class PlayerHidingMechanic : MonoBehaviour {
 	private bool playerHiding;
 	private RaycastHit ray;
 	private float distaceFromWall;
+	private CharacterController player;
 	private PlayerGravity playerGravity;
 
 
@@ -14,17 +15,21 @@ public class PlayerHidingMechanic : MonoBehaviour {
 		playerHiding = false;
 		distaceFromWall = 0.0f;
 		playerGravity = GetComponent<PlayerGravity> ();
+		player = GetComponent<CharacterController> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-		if (Input.GetKey (KeyCode.W)) {
-			playerGravity.setHidng(true);
-			playerHiding = true;
-		} else {
-			playerGravity.setHidng(false);
-			playerHiding = false;
+		if (player.isGrounded) {
+
+			if (Input.GetKey (KeyCode.W)) {
+				playerGravity.setHidng (true);
+				playerHiding = true;
+			} else {
+				playerGravity.setHidng (false);
+				playerHiding = false;
+			}
 		}
 
 	}

@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour {
 	private float speed;
 	//for direction (false = -, true = +)
 	//for leftOrRight (false = left, true = right)
-	private bool direction = true, leftOrRight, slide = false;
+	private bool direction = true, leftOrRight, slide = false, turnPlayer = false;
 
 	//Time in seconds
 	public float easeTime = 1.0f;
@@ -45,8 +45,20 @@ public class PlayerMove : MonoBehaviour {
 		if (Input.GetKey (KeyCode.S)) {
 			slide = true;
 			if (Input.GetKey ("a")) {
+				//rotate the player if the were facing the otehr direction
+				if(!turnPlayer){
+					gameObject.transform.Rotate(0, 180, 0);
+					turnPlayer = true;
+				}
+
 				leftOrRight = true;
 			} else if (Input.GetKey ("d")) {
+				//rotate the player if they were facing the otehr direction last
+				if(turnPlayer){
+					gameObject.transform.Rotate(0, -180, 0);
+					turnPlayer = false;
+				}
+
 				leftOrRight = false;
 			}
 			if(Input.GetKey (KeyCode.LeftShift))
@@ -57,9 +69,23 @@ public class PlayerMove : MonoBehaviour {
 		} else {
 			if (Input.GetKey (KeyCode.LeftShift)) {
 				if (Input.GetKey ("a")) {
+
+					//rotate the player if they were facing the otehr direction last
+					if(!turnPlayer){
+						gameObject.transform.Rotate(0, 180, 0);
+						turnPlayer = true;
+					}
+
 					leftOrRight = true;
 					speed = sprintSpeed * interpolate (Time.deltaTime, false);
 				} else if (Input.GetKey ("d")) {
+
+					//rotate the player if they were facing the otehr direction last
+					if(turnPlayer){
+						gameObject.transform.Rotate(0, -180, 0);
+						turnPlayer = false;
+					}
+
 					leftOrRight = false;
 					speed = sprintSpeed * interpolate (Time.deltaTime, false);
 				} else {
@@ -67,9 +93,29 @@ public class PlayerMove : MonoBehaviour {
 				}
 			} else {
 				if (Input.GetKey ("a")) {
+
+					//rotate the player if they were facing the otehr direction last
+					if(!turnPlayer){
+						gameObject.transform.Rotate(0, 180, 0);
+						turnPlayer = true;
+						speed = 0;
+					}
+					
+
+
 					leftOrRight = true;
 					speed = maxSpeed * interpolate (Time.deltaTime, false);
 				} else if (Input.GetKey ("d")) {
+
+					//rotate the player if they were facing the otehr direction last
+					if(turnPlayer){
+						gameObject.transform.Rotate(0, -180, 0);
+						turnPlayer = false;
+						speed = 0;
+					}
+					
+
+
 					leftOrRight = false;
 					speed = maxSpeed * interpolate (Time.deltaTime, false);
 				} else {
@@ -78,9 +124,13 @@ public class PlayerMove : MonoBehaviour {
 			}
 		}
 
-		player.Move (-this.transform.right * speed *Time.deltaTime);
 
-		//Debug.log (speed);
+		if(turnPlayer)
+			player.Move (this.transform.right * speed *Time.deltaTime);
+		else
+			player.Move (-this.transform.right * speed *Time.deltaTime);
+
+		//Debug.Log (speed);
 	}
 
 	//Interpolation, f(x) = log(x^e)
@@ -119,5 +169,8 @@ public class PlayerMove : MonoBehaviour {
 		}
 
 	}
+
+	public bool getTurnPlayer(){return turnPlayer;}
+	public float getSpeed(){return speed;}
 
 }
