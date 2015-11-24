@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerGravity : MonoBehaviour {
 
 	private CharacterController player;
-	private bool grounded = false, hiding;
+	public bool grounded = false, hiding;
 	private float playerVerticalSpeed = 0;
 	public float gravity = 9.81f;
 	public float jumpPower = 10.0f;
@@ -17,6 +17,8 @@ public class PlayerGravity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		//Debug.Log ("move gravity :" + playerVerticalSpeed + " grounded? " + player.collisionFlags);
 
 		if (grounded) {
 			if(Input.GetKey("space")){
@@ -31,7 +33,10 @@ public class PlayerGravity : MonoBehaviour {
 
 		if (player.collisionFlags == CollisionFlags.Below) {
 			grounded = true;
+			if(grounded)
+				playerVerticalSpeed = -1;
 		} else {
+			grounded = false;
 			if(!grounded)
 				playerVerticalSpeed -= gravity*Time.deltaTime;
 		}

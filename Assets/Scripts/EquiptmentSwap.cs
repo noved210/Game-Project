@@ -32,7 +32,7 @@ public class EquiptmentSwap : MonoBehaviour {
 		else if (Input.GetKeyDown (KeyCode.DownArrow)) {
 			currentSelection--;
 			if(currentSelection < 0){
-				currentSelection = selectionMax;
+				currentSelection = selectionMax-1;
 			}
 			Destroy(currentGameObject);
 			currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position, gameObject.transform.rotation) as GameObject;

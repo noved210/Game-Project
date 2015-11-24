@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraPlayerLock.cs" />
-     <Compile Include="Assets\Scripts\CameraRemoveClipping.cs" />
      <Compile Include="Assets\Scripts\CameraSnap.cs" />
      <Compile Include="Assets\Scripts\DialogPlayer.cs" />
      <Compile Include="Assets\Scripts\DrillAnimation.cs" />

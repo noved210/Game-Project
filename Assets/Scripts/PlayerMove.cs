@@ -47,18 +47,18 @@ public class PlayerMove : MonoBehaviour {
 			if (Input.GetKey ("a")) {
 				//rotate the player if the were facing the otehr direction
 				if(!turnPlayer){
-					//gameObject.transform.Rotate(0, 180, 0);
+					gameObject.transform.Rotate(0, 180, 0);
+					turnPlayer = true;
 				}
 
-				turnPlayer = true;
 				leftOrRight = true;
 			} else if (Input.GetKey ("d")) {
 				//rotate the player if they were facing the otehr direction last
 				if(turnPlayer){
 					gameObject.transform.Rotate(0, -180, 0);
+					turnPlayer = false;
 				}
 
-				turnPlayer = false;
 				leftOrRight = false;
 			}
 			if(Input.GetKey (KeyCode.LeftShift))
@@ -72,10 +72,9 @@ public class PlayerMove : MonoBehaviour {
 
 					//rotate the player if they were facing the otehr direction last
 					if(!turnPlayer){
-						//gameObject.transform.Rotate(0, 180, 0);
+						gameObject.transform.Rotate(0, 180, 0);
+						turnPlayer = true;
 					}
-					
-					turnPlayer = true;
 
 					leftOrRight = true;
 					speed = sprintSpeed * interpolate (Time.deltaTime, false);
@@ -84,9 +83,8 @@ public class PlayerMove : MonoBehaviour {
 					//rotate the player if they were facing the otehr direction last
 					if(turnPlayer){
 						gameObject.transform.Rotate(0, -180, 0);
+						turnPlayer = false;
 					}
-					
-					turnPlayer = false;
 
 					leftOrRight = false;
 					speed = sprintSpeed * interpolate (Time.deltaTime, false);
@@ -132,7 +130,7 @@ public class PlayerMove : MonoBehaviour {
 		else
 			player.Move (-this.transform.right * speed *Time.deltaTime);
 
-		Debug.Log (speed);
+		//Debug.Log (speed);
 	}
 
 	//Interpolation, f(x) = log(x^e)
@@ -173,5 +171,6 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public bool getTurnPlayer(){return turnPlayer;}
+	public float getSpeed(){return speed;}
 
 }

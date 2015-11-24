@@ -25,7 +25,7 @@ public class NPCStats : MonoBehaviour {
 	public void applyStun(){
 
 	}
-
+	/*
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.gameObject.tag == "Player") {
@@ -41,22 +41,22 @@ public class NPCStats : MonoBehaviour {
 			if(normal == gameObject.transform.forward)
 			{
 				Debug.Log ("MUMMY - Hit from front");
-				col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(-4, 0, 0));
+				//col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(-4, 0, 0));
 			}
 			else if(normal == -gameObject.transform.forward)
 			{
 				Debug.Log ("MUMMY - Hit from Rear");
-				col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(1, 0, 0));
+				//col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(1, 0, 0));
 			}
 			else if(normal == -gameObject.transform.up)
 			{
 				Debug.Log ("MUMMY - Hit from bottom");
-				col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(0, 3, 0));
+				//col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(0, 3, 0));
 			}
 			else if(normal == gameObject.transform.up)
 			{
 				Debug.Log ("MUMMY - Hit from top");
-				col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(0, 3, 0));
+				//col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(0, 3, 0));
 			}
 			else{
 				Debug.Log ("MUMMY - unknown hit direction");
@@ -65,7 +65,7 @@ public class NPCStats : MonoBehaviour {
 	
 
 		}
-	}
+	}*/
 
 	void Update () {
 		
