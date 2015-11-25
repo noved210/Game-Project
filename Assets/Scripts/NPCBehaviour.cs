@@ -62,7 +62,7 @@ public class NPCBehaviour : MonoBehaviour {
 		enemyPositionTimer += enemySpeed * Time.deltaTime;
 		if (playerDetection.getSeen () && playerDetection.getInView ()) {
 
-			//Debug.log("Seeing player");
+			Debug.Log("Seeing player");
 
 			//Debug.log("Currently seen " + Vector3.Distance (gameObject.transform.position, playerPosition));
 			//Debug.log(gameObject.transform.position + " " + playerPosition);
@@ -77,9 +77,9 @@ public class NPCBehaviour : MonoBehaviour {
 			}else{
 				//move the NPC towards the player at it's speed
 				Vector3 movement = (transform.position - playerPosition);
-				movement.z = 0;
+				movement.y = 0;
 				movement.x = 0;
-				transform.Translate(movement*enemySpeed);
+				transform.Translate(-movement*enemySpeed);
 				/*the NPC is moving towards the player. '-1' indicates that the NPC is not moving to any of the playerDestinations 
 				and needs to fin the closet one to move to when it is no longer tracking the player.*/
 				currentDestination = -1;
@@ -87,13 +87,13 @@ public class NPCBehaviour : MonoBehaviour {
 
 		} else if (playerDetection.getSeen () && !playerDetection.getInView ()) {
 
-			//Debug.log("Looking for player");
+			Debug.Log("Looking for player");
 
 			//Debug.log("Currently looking " + Vector3.Distance (gameObject.transform.position, playerPosition));
 			//Debug.log(gameObject.transform.position + " " + playerPosition);
 			
 			if (playerDetection.getBehind ()) {
-				gameObject.transform.Rotate(0, 0, -180);
+				gameObject.transform.Rotate(0, -180, 0);
 				playerDetection.enemyTurned();
 			}
 
@@ -101,7 +101,7 @@ public class NPCBehaviour : MonoBehaviour {
 
 			//if the NPC is close enough to the player's last seen position then just wait around till the NPC 'forgets' about the player
 			if (transform.position.x - playerPosition.x < closeEnough && playerPosition.x - transform.position.x < closeEnough) {
-				//Debug.log("waiting to forget " + waitTimer);
+				Debug.Log("waiting to forget " + waitTimer);
 				//wait for the NPC to forget
 				waitTimer += Time.deltaTime;
 				if (waitTimer > waitAtDestinationTime*3) {
@@ -117,23 +117,23 @@ public class NPCBehaviour : MonoBehaviour {
 				and needs to fin the closet one to move to when it is no longer tracking the player.*/
 				//move the NPC towards the player at it's speed
 				Vector3 movement = (transform.position - playerPosition);
-				movement.z = 0;
+				movement.y = 0;
 				movement.x = 0;
-				transform.Translate(movement*enemySpeed);
+				transform.Translate(-movement*enemySpeed);
 				/*the NPC is moving towards the player. '-1' indicates that the NPC is not moving to any of the playerDestinations 
 				and needs to fin the closet one to move to when it is no longer tracking the player.*/
 				currentDestination = -1;
 			}
 		} else {
 
-			//Debug.log("Wondering b/t spaces");
+		Debug.Log("Wondering b/t spaces");
 
 			//was at the players last position, now needs to go back to the closest node taht it can travel to
 			if (currentDestination == -1) {
 				currentDestination = getClosestPoint ();
 				fromPosition = transform.position;
 				gameObject.transform.LookAt (destinationList[currentDestination]);
-				gameObject.transform.Rotate(-90, 0, 180);
+				//gameObject.transform.Rotate(-90, 0, 180);
 			}
 
 			//move to the node that it should

@@ -168,7 +168,7 @@ public class characterStats : MonoBehaviour {
 			if (timerRunning) {
 				timer += Time.deltaTime;
 				if (timer >= 1.0f) {
-					applyDamage (swarmDamage, -transform.forward * 2);
+					applyDamage (swarmDamage, -transform.up * 2);
 					timer = 0;
 				}
 			}
