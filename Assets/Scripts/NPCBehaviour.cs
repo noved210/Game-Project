@@ -62,7 +62,7 @@ public class NPCBehaviour : MonoBehaviour {
 		enemyPositionTimer += enemySpeed * Time.deltaTime;
 		if (playerDetection.getSeen () && playerDetection.getInView ()) {
 
-			Debug.Log("Seeing player");
+			//Debug.Log("Seeing player");
 
 			//Debug.log("Currently seen " + Vector3.Distance (gameObject.transform.position, playerPosition));
 			//Debug.log(gameObject.transform.position + " " + playerPosition);
@@ -87,7 +87,7 @@ public class NPCBehaviour : MonoBehaviour {
 
 		} else if (playerDetection.getSeen () && !playerDetection.getInView ()) {
 
-			Debug.Log("Looking for player");
+			//Debug.Log("Looking for player");
 
 			//Debug.log("Currently looking " + Vector3.Distance (gameObject.transform.position, playerPosition));
 			//Debug.log(gameObject.transform.position + " " + playerPosition);
@@ -101,7 +101,7 @@ public class NPCBehaviour : MonoBehaviour {
 
 			//if the NPC is close enough to the player's last seen position then just wait around till the NPC 'forgets' about the player
 			if (transform.position.x - playerPosition.x < closeEnough && playerPosition.x - transform.position.x < closeEnough) {
-				Debug.Log("waiting to forget " + waitTimer);
+				//Debug.Log("waiting to forget " + waitTimer);
 				//wait for the NPC to forget
 				waitTimer += Time.deltaTime;
 				if (waitTimer > waitAtDestinationTime*3) {
@@ -126,7 +126,7 @@ public class NPCBehaviour : MonoBehaviour {
 			}
 		} else {
 
-		Debug.Log("Wondering b/t spaces");
+		//Debug.Log("Wondering b/t spaces");
 
 			//was at the players last position, now needs to go back to the closest node taht it can travel to
 			if (currentDestination == -1) {
