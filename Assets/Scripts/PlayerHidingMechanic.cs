@@ -8,6 +8,7 @@ public class PlayerHidingMechanic : MonoBehaviour {
 	private float distaceFromWall;
 	private CharacterController player;
 	private PlayerGravity playerGravity;
+	private bool onStairs;
 
 
 	// Use this for initialization
@@ -16,14 +17,18 @@ public class PlayerHidingMechanic : MonoBehaviour {
 		distaceFromWall = 0.0f;
 		playerGravity = GetComponent<PlayerGravity> ();
 		player = GetComponent<CharacterController> ();
+		onStairs = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-		if (player.isGrounded) {
+		if (playerGravity.grounded || onStairs) {
+
+			Debug.Log("Player could hide");
 
 			if (Input.GetKey (KeyCode.W)) {
+				Debug.Log("player hiding");
 				playerGravity.setHidng (true);
 				playerHiding = true;
 			} else {
@@ -36,7 +41,13 @@ public class PlayerHidingMechanic : MonoBehaviour {
 
 	void OnTriggerStay(Collider trigger){
 
-		if (trigger.gameObject.tag == "HidingSpot") {
+		if (trigger.gameObject.tag == "HidingSpot" || trigger.gameObject.tag == "Stairs") {
+
+			if(trigger.gameObject.tag == "Stairs"){
+				onStairs = true;
+			}
+
+			Debug.Log("PlayerCanHide");
 
 			if(playerHiding){
 				if(Physics.Raycast(transform.position, -transform.forward, out ray)){
@@ -52,6 +63,7 @@ public class PlayerHidingMechanic : MonoBehaviour {
 
 	void OnTriggerExit(){
 		playerHiding = false;
+		onStairs = false;
 	}
 
 	public bool getPlayerHiding(){return playerHiding;}

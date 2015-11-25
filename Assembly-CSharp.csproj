@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\PlayerHints.cs" />
      <Compile Include="Assets\Scripts\PlayerLeverInterations.cs" />
      <Compile Include="Assets\Scripts\PlayerMove.cs" />
+     <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\TorchCode.cs" />
      <Compile Include="Assets\Scripts\TriggerPlatformChange.cs" />
      <Compile Include="Assets\Scripts\TwoStatObj.cs" />
