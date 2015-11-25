@@ -17,16 +17,21 @@ public class EquiptmentSwap : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			currentSelection++;
 			if(currentSelection >= selectionMax){
 				currentSelection = 0;
 			}
 			Destroy(currentGameObject);
-			currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position, gameObject.transform.rotation) as GameObject;
-			currentGameObject.transform.parent = gameObject.transform;
+			if(equipment [currentSelection].gameObject.name == "Gun")
+			{
+				currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position + (new Vector3(-1, 0, -1)), gameObject.transform.rotation) as GameObject;
+				currentGameObject.transform.parent = gameObject.transform;
+			}
+			else{
+				currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+				currentGameObject.transform.parent = gameObject.transform;
+			}
 		}
 
 		else if (Input.GetKeyDown (KeyCode.DownArrow)) {
@@ -35,8 +40,15 @@ public class EquiptmentSwap : MonoBehaviour {
 				currentSelection = selectionMax-1;
 			}
 			Destroy(currentGameObject);
-			currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position, gameObject.transform.rotation) as GameObject;
-			currentGameObject.transform.parent = gameObject.transform;
+			if(equipment [currentSelection].gameObject.name == "Gun")
+			{
+				currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position + (new Vector3(-1, 0, -1)), gameObject.transform.rotation) as GameObject;
+				currentGameObject.transform.parent = gameObject.transform;
+			}
+			else{
+				currentGameObject = Instantiate (equipment [currentSelection], gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+				currentGameObject.transform.parent = gameObject.transform;
+			}
 		}
 
 	}

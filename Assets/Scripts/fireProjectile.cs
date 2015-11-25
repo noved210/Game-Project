@@ -2,21 +2,16 @@
 using System.Collections;
 
 public class fireProjectile : MonoBehaviour {
-	
 
-<<<<<<< HEAD
-
-	void Start () {
-=======
 	float speed;
 	GameObject projectileBase;
-	private GameObject player;
+	GameObject player;
+	GameObject projClone;
 
 	void Start () {
 		projectileBase = Resources.Load ("projectileBasic") as GameObject;
-		float speed = projectileBase.GetComponent<projectileAttributes> ().speed;
+		speed = projectileBase.GetComponent<projectileAttributes> ().speed;
 		player = GameObject.Find("NewPlayer");
->>>>>>> 943b04657f5ed962477778362c48d94276a53f04
 	}
 	
 	// Update is called once per frame
@@ -25,19 +20,13 @@ public class fireProjectile : MonoBehaviour {
 			//Debug.log ("FIRED");
 			int weaponSelected = player.GetComponent<characterStats>().weaponSelected;
 			if(weaponSelected==0){
-<<<<<<< HEAD
 				GameObject projectile = Resources.Load ("projectileBasic") as GameObject;
-				float speed = projectile.GetComponent<projectileAttributes> ().speed;
-				if(GetComponent<characterStats>().baseAmmo>0){
-					GetComponent<characterStats>().baseAmmo--;
-					GameObject projClone = Instantiate(projectile, transform.position + new Vector3(2, 0, 0), transform.rotation) as GameObject;
-=======
+				speed = projectile.GetComponent<projectileAttributes> ().speed;
 				if(player.GetComponent<characterStats>().baseAmmo>0){
 					player.GetComponent<characterStats>().baseAmmo--;
-					GameObject projClone = Instantiate(projectileBase, transform.position, transform.rotation) as GameObject;
->>>>>>> 943b04657f5ed962477778362c48d94276a53f04
+					projClone = Instantiate(projectile,  transform.position, transform.rotation) as GameObject;
 					Rigidbody rb = projClone.GetComponent<Rigidbody>();
-					rb.velocity += -transform.right*20;
+					rb.velocity += -transform.right*speed;
 					Destroy(projClone, 5f);
 				}
 				else{
@@ -45,40 +34,31 @@ public class fireProjectile : MonoBehaviour {
 				}
 			}
 			else if(weaponSelected==1){
-<<<<<<< HEAD
-				Debug.Log ("Fired stun projectile");
+				Debug.Log ("Stun ammo used!");
 				GameObject projectile = Resources.Load ("projectileStun") as GameObject;
-				float speed = projectile.GetComponent<projectileAttributes> ().speed;
-				if(GetComponent<characterStats>().stunAmmo>0){
-					GetComponent<characterStats>().stunAmmo--;
-					GameObject projClone = Instantiate(projectile, transform.position + new Vector3(2, 0, 0), transform.rotation) as GameObject;
-=======
+				speed = projectile.GetComponent<projectileAttributes> ().speed;
+				Debug.Log ("Speed:" + projectile.GetComponent<projectileAttributes> ().speed);
+				Debug.Log ("Ammo: " + player.GetComponent<characterStats>().stunAmmo);
 				if(player.GetComponent<characterStats>().stunAmmo>0){
 					player.GetComponent<characterStats>().stunAmmo--;
-					GameObject projClone = Instantiate(projectileBase, transform.position, transform.rotation) as GameObject;
->>>>>>> 943b04657f5ed962477778362c48d94276a53f04
+					projClone = Instantiate(projectile,  transform.position, transform.rotation) as GameObject;
 					Rigidbody rb = projClone.GetComponent<Rigidbody>();
-					rb.velocity +=  -transform.right*20;
+					rb.velocity += -transform.right*speed;
 					Destroy(projClone, 5f);
 				}
 				else{
-					//No stun ammo!
+					//No basic ammo!
 				}
 			}
+
 			else if(weaponSelected==2){
-<<<<<<< HEAD
 				GameObject projectile = Resources.Load ("projectileDistract") as GameObject;
-				float speed = projectile.GetComponent<projectileAttributes> ().speed;
-				if(GetComponent<characterStats>().distractAmmo>0){
-					GetComponent<characterStats>().distractAmmo--;
-					GameObject projClone = Instantiate(projectile, transform.position + new Vector3(2, 0, 0), transform.rotation) as GameObject;
-=======
+				speed = projectile.GetComponent<projectileAttributes> ().speed;
 				if(player.GetComponent<characterStats>().distractAmmo>0){
 					player.GetComponent<characterStats>().distractAmmo--;
-					GameObject projClone = Instantiate(projectileBase, transform.position, transform.rotation) as GameObject;
->>>>>>> 943b04657f5ed962477778362c48d94276a53f04
+					projClone = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
 					Rigidbody rb = projClone.GetComponent<Rigidbody>();
-					rb.velocity +=  -transform.right*20;
+					rb.velocity +=  -transform.right*speed;
 					Destroy(projClone, 5f);
 				}
 				else{
@@ -89,3 +69,5 @@ public class fireProjectile : MonoBehaviour {
 		}
 	}
 }
+
+

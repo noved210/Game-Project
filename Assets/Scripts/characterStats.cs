@@ -20,7 +20,7 @@ public class characterStats : MonoBehaviour {
 	public float detection = 0;
 	public int baseAmmo = 10;
 	public int stunAmmo = 5;
-	public int distractAmmo = 0;
+	public int distractAmmo = 5;
 	public int weaponSelected = 0;
 	//Check maxAmmo whever adding ammo from pickup
 	public int maxAmmo = 10;
@@ -57,51 +57,6 @@ public class characterStats : MonoBehaviour {
 		}
 	}
 
-	/*
-	void OnControllerColliderHit (ControllerColliderHit hit)
-	{
-
-		if(hit.gameObject.tag == "Mummy" && !addingKnockback)
-		{
-
-			Debug.Log ("Hit the mummy");
-
-			Ray ray = new Ray(transform.position, transform.position);
-			RaycastHit rayHit;
-			
-			Physics.Raycast(ray, out rayHit);
-			Debug.Log ("Ray hit:"+ rayHit);
-			Vector3 normal = rayHit.normal;
-
-			normal = rayHit.transform.TransformDirection (normal);
-			//if(rayHit.exists){
-				if(normal == gameObject.transform.forward)
-				{
-					Debug.Log ("Hit from front");
-					applyDamage (damage, new Vector3(-1, 0, 0));
-				}
-				else if(normal == -gameObject.transform.forward)
-				{
-					Debug.Log ("Hit from Rear");
-					applyDamage (damage, new Vector3(1, 0, 0));
-				}
-				else if(normal == -gameObject.transform.up)
-				{
-					Debug.Log ("Hit from Bellow");
-					applyDamage (damage, new Vector3(0, 3, 0));
-				}
-				else if(normal == gameObject.transform.up)
-				{
-					Debug.Log ("Hit from Above");
-					applyDamage (damage, new Vector3(0, 3, 0));
-				}
-			/*}
-			else{
-				Debug.Log ("No RayHit Detected");
-			}*/
-		}
-	}
-	*/
 
 	void Die() {
 		Application.LoadLevel(Application.loadedLevel);
@@ -144,8 +99,6 @@ public class characterStats : MonoBehaviour {
 
 	}
 
-<<<<<<< HEAD
-=======
 	//if the player enters the bug swarm damage the player once per second
 	void OnTriggerEnter(Collider trigger){
 		//damage the player once and start the timer for damaging the player more
@@ -176,7 +129,7 @@ public class characterStats : MonoBehaviour {
 			if (timerRunning) {
 				timer += Time.deltaTime;
 				if (timer >= 1.0f) {
-					applyDamage (swarmDamage, -transform.forward * 2);
+					applyDamage (swarmDamage, Vector3.zero);
 					timer = 0;
 				}
 			}
@@ -206,5 +159,5 @@ public class characterStats : MonoBehaviour {
 	}
 
 	void resetPlayerOrientation(){}
->>>>>>> 943b04657f5ed962477778362c48d94276a53f04
+
 }
