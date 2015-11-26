@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerHidingMechanic.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NPCBehaviour.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerHidingMechanic.cs" Line="26" Column="33" />
-      <File FileName="Assets\Scripts\Stairs.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerGravity.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="6" Column="2" />
+      <File FileName="Assets\Scripts\SpawnEnemyOne.cs" Line="19" Column="107" />
+      <File FileName="Assets\Scripts\NPCBehaviour.cs" Line="221" Column="50" />
+      <File FileName="Assets\Scripts\PlayerDetection.cs" Line="62" Column="7" />
+      <File FileName="Assets\Scripts\PlayerHidingMechanic.cs" Line="32" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

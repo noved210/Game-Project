@@ -14,7 +14,7 @@ public class PlayerHints : MonoBehaviour {
 	void Start () {
 		newBubble = null;
 		hint = null;
-		if (gameObject.transform.parent.gameObject.transform.rotation.eulerAngles.y > 90) {
+		if (gameObject.transform.rotation.eulerAngles.y > 90) {
 			turned = true;
 		} else {
 			turned = false;
@@ -28,7 +28,7 @@ public class PlayerHints : MonoBehaviour {
 
 		if (hint != null) {
 
-			if (gameObject.transform.parent.gameObject.transform.rotation.eulerAngles.y > 90) {
+			if (gameObject.transform.rotation.eulerAngles.y > 90) {
 				hintHolder.transform.eulerAngles = new Vector3(0, 180, 0);	
 			} else {
 				hintHolder.transform.eulerAngles = new Vector3(0, 0, 0);	

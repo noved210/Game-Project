@@ -23,37 +23,38 @@ public class PlayerDetection : MonoBehaviour {
 		Debug.DrawRay(transform.position, -transform.up*(distance/2), Color.red);
 		//Debug.log("Draw Ray");
 
+		playerInView = false;
+
+
 		//create raycast in the forward direction at theta
-		if (Physics.Raycast (transform.position, transform.up*distance , out ray)) {
+		if (Physics.Raycast (transform.position, transform.up, out ray)) {
 
 			//Debug.Log("Hitting something " + ray.collider.gameObject.tag);
-			//playerInView = false;
 			//if the ray hits the player then set the player to be seen and currently in view
 			if(ray.collider.gameObject.tag == "Player" && ray.distance < distance){
 
-				//Debug.Log("Player seen");
+				//Debug.Log("Player being seen");
 				playerSeen = true;
 				playerInView = true;
 				playerPosition = ray.collider.gameObject.transform.position;
 				Debug.Log("Ray distance :" + ray.distance);
 
 			}else{
-				playerInView = false;
-				//Debug.log("Player not seen");
+				//playerInView = false;
+				//Debug.Log("Player not seen");
 			}
 
 		}
 
-
-
 		//create raycast in the forward direction at theta
-		if (Physics.Raycast (transform.position, -transform.up*(distance/2) , out behind)) {
+		if (Physics.Raycast (transform.position, -transform.up , out behind)) {
 
 
 			//Debug.Log("Hitting something " + behind.collider.gameObject.tag);
 
 			//Debug.log("Hitting something " + ray.collider.gameObject.tag);
 			//playerInView = false;
+
 			//if the ray hits the player then set the player to be seen and currently in view
 			if(behind.collider.gameObject.tag == "Player" && behind.distance < distance/2){
 
