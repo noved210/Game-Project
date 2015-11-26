@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\characterStats.cs" />
      <Compile Include="Assets\Scripts\fireProjectile.cs" />
      <Compile Include="Assets\Scripts\projectileAttributes.cs" />
+     <Compile Include="Assets\aimEquipment.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
