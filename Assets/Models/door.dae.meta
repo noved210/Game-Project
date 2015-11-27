@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 2be363a2d410f2f47b77806779e03b50
-timeCreated: 1448604594
+guid: 61854062e3d64664ab47da429fe6b278
+timeCreated: 1448647878
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: ID12
-    100002: //RootNode
-    400000: ID12
-    400002: //RootNode
-    2300000: ID12
-    2300002: //RootNode
-    3300000: ID12
-    3300002: //RootNode
+    100000: //RootNode
+    100002: ID12
+    400000: //RootNode
+    400002: ID12
+    2300000: //RootNode
+    2300002: ID12
+    3300000: //RootNode
+    3300002: ID12
     4300000: SketchUp
     4300002: ID12
     9500000: //RootNode

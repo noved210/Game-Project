@@ -1,42 +1,64 @@
 fileFormatVersion: 2
-guid: c3666a2893b1e434dbde40f61e55fe2e
+guid: a3342e0b48bdc3e43add7ff70e826afb
 timeCreated: 1448647878
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: group_0
-    100004: ID13
-    100006: ID19
-    100008: ID25
-    100010: ID31
-    100012: ID37
+    100002: CR123A_Battery
+    100004: ID12
+    100006: ID22
+    100008: ID30
+    100010: ID38
+    100012: ID51
+    100014: ID57
+    100016: ID65
+    100018: ID71
+    100020: ID77
+    100022: instance_0
     400000: //RootNode
-    400002: group_0
-    400004: ID13
-    400006: ID19
-    400008: ID25
-    400010: ID31
-    400012: ID37
-    2300000: group_0
-    2300002: ID13
-    2300004: ID19
-    2300006: ID25
-    2300008: ID31
-    2300010: ID37
-    3300000: group_0
-    3300002: ID13
-    3300004: ID19
-    3300006: ID25
-    3300008: ID31
-    3300010: ID37
-    4300000: group_0
-    4300002: ID13
-    4300004: ID19
-    4300006: ID25
-    4300008: ID31
-    4300010: ID37
+    400002: CR123A_Battery
+    400004: ID12
+    400006: ID22
+    400008: ID30
+    400010: ID38
+    400012: ID51
+    400014: ID57
+    400016: ID65
+    400018: ID71
+    400020: ID77
+    400022: instance_0
+    2300000: CR123A_Battery
+    2300002: ID12
+    2300004: ID22
+    2300006: ID30
+    2300008: ID38
+    2300010: ID51
+    2300012: ID57
+    2300014: ID65
+    2300016: ID71
+    2300018: ID77
+    3300000: CR123A_Battery
+    3300002: ID12
+    3300004: ID22
+    3300006: ID30
+    3300008: ID38
+    3300010: ID51
+    3300012: ID57
+    3300014: ID65
+    3300016: ID71
+    3300018: ID77
+    4300000: CR123A_Battery
+    4300002: ID12
+    4300004: ID22
+    4300006: ID30
+    4300008: ID38
+    4300010: ID51
+    4300012: ID57
+    4300014: ID65
+    4300016: ID71
+    4300018: ID77
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -61,7 +83,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
