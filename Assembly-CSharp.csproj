@@ -51,7 +51,9 @@
      <Compile Include="Assets\Scripts\DrillAnimation.cs" />
      <Compile Include="Assets\Scripts\EquiptmentSwap.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Hint.cs" />
      <Compile Include="Assets\Scripts\HoldCharacter.cs" />
+     <Compile Include="Assets\Scripts\LeverActions.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform2State.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform3State.cs" />
      <Compile Include="Assets\Scripts\NPCBehaviour.cs" />
@@ -60,9 +62,14 @@
      <Compile Include="Assets\Scripts\PlayerDetection.cs" />
      <Compile Include="Assets\Scripts\PlayerGravity.cs" />
      <Compile Include="Assets\Scripts\PlayerHidingMechanic.cs" />
+     <Compile Include="Assets\Scripts\PlayerHints.cs" />
+     <Compile Include="Assets\Scripts\PlayerLeverInterations.cs" />
      <Compile Include="Assets\Scripts\PlayerMove.cs" />
+     <Compile Include="Assets\Scripts\SpawnEnemyOne.cs" />
+     <Compile Include="Assets\Scripts\Stairs.cs" />
      <Compile Include="Assets\Scripts\TorchCode.cs" />
      <Compile Include="Assets\Scripts\TriggerPlatformChange.cs" />
+     <Compile Include="Assets\Scripts\TwoStatObj.cs" />
      <Compile Include="Assets\Scripts\characterStats.cs" />
      <Compile Include="Assets\Scripts\fireProjectile.cs" />
      <Compile Include="Assets\Scripts\projectileAttributes.cs" />

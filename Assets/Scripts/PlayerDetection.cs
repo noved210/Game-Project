@@ -19,45 +19,47 @@ public class PlayerDetection : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.DrawRay(transform.position, -transform.right*distance, Color.red);
-		Debug.DrawRay(transform.position, transform.right*(distance/2), Color.red);
+		Debug.DrawRay(transform.position, transform.up*distance, Color.red);
+		Debug.DrawRay(transform.position, -transform.up*(distance/2), Color.red);
 		//Debug.log("Draw Ray");
 
-		//create raycast in the forward direction at theta
-		if (Physics.Raycast (transform.position, -transform.right*distance , out ray)) {
+		playerInView = false;
 
-			//Debug.log("Hitting something " + ray.collider.gameObject.tag);
-			//playerInView = false;
+
+		//create raycast in the forward direction at theta
+		if (Physics.Raycast (transform.position, transform.up, out ray)) {
+
+			//Debug.Log("Hitting something " + ray.collider.gameObject.tag);
 			//if the ray hits the player then set the player to be seen and currently in view
-			if(ray.collider.gameObject.tag == "Player" && ray.distance <= distance){
+			if(ray.collider.gameObject.tag == "Player" && ray.distance < distance){
+
+				//Debug.Log("Player being seen");
 				playerSeen = true;
 				playerInView = true;
 				playerPosition = ray.collider.gameObject.transform.position;
-				//attack the player
-				if(ray.distance < attackRange){
+				Debug.Log("Ray distance :" + ray.distance);
 
-				}
-				//Debug.log("Player seen");
 			}else{
-				playerInView = false;
-				//Debug.log("Player not seen");
+				//playerInView = false;
+				//Debug.Log("Player not seen");
 			}
 
 		}
 
-
-
 		//create raycast in the forward direction at theta
-		if (Physics.Raycast (transform.position, transform.right*(distance/2) , out behind)) {
+		if (Physics.Raycast (transform.position, -transform.up , out behind)) {
 
 
-			//Debug.log("player seen from behind");
+			//Debug.Log("Hitting something " + behind.collider.gameObject.tag);
 
 			//Debug.log("Hitting something " + ray.collider.gameObject.tag);
 			//playerInView = false;
-			//if the ray hits the player then set the player to be seen and currently in view
-			if(behind.collider.gameObject.tag == "Player" && behind.distance <= distance/2){
 
+			//if the ray hits the player then set the player to be seen and currently in view
+			if(behind.collider.gameObject.tag == "Player" && behind.distance < distance/2){
+
+
+				//Debug.Log("player seen from behind");
 
 				//Debug.log("player seen from behind and its the player!! turn around");
 				//player behind is true

@@ -130,6 +130,7 @@ public class characterStats : MonoBehaviour {
 				timer += Time.deltaTime;
 				if (timer >= 1.0f) {
 					applyDamage (swarmDamage, Vector3.zero);
+					applyDamage (swarmDamage, -transform.up * 2);
 					timer = 0;
 				}
 			}
