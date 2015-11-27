@@ -5,7 +5,11 @@ public class NPCStats : MonoBehaviour {
 	public float health;
 	public float detectionRange;
 	public float damage;
+	public float origSpeed;
 	public float speed;
+	public float timer;
+	public float timerMax;
+	public bool timerOn;
 
 	// Use this for initialization
 	void Start () {
@@ -22,9 +26,7 @@ public class NPCStats : MonoBehaviour {
 		}
 
 	}
-	public void applyStun(){
 
-	}
 	/*
 	void OnTriggerEnter(Collider col)
 	{
@@ -38,12 +40,12 @@ public class NPCStats : MonoBehaviour {
 			Vector3 normal = rayHit.normal;
 			normal = rayHit.transform.TransformDirection (normal);
 
-			if(normal == gameObject.transform.forward)
+			if(normal == gameObject.transform.right)
 			{
 				Debug.Log ("MUMMY - Hit from front");
 				//col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(-4, 0, 0));
 			}
-			else if(normal == -gameObject.transform.forward)
+			else if(normal == -gameObject.transform.right)
 			{
 				Debug.Log ("MUMMY - Hit from Rear");
 				//col.gameObject.GetComponent<characterStats>().applyDamage (damage, new Vector3(1, 0, 0));
@@ -66,8 +68,22 @@ public class NPCStats : MonoBehaviour {
 
 		}
 	}*/
-
+	public void stun(float time)
+	{
+		timer = 0f;
+		timerMax = time;
+		timerOn = true;
+		origSpeed = speed;
+		speed = 0f;
+	}
 	void Update () {
-		
+		if (timerOn) {
+			timer += Time.deltaTime;
+			if(timer>timerMax)
+			{
+				speed = origSpeed;
+				Debug.Log ("target unstunned");
+			}
+		}
 	}
 }

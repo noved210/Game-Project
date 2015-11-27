@@ -19,9 +19,12 @@ public class characterStats : MonoBehaviour {
 	public float damage = 1;
 	public float detection = 0;
 	public int baseAmmo = 10;
-	public int stunAmmo = 0;
-	public int distractAmmo = 0;
+	public int stunAmmo = 5;
+	public int distractAmmo = 5;
 	public int weaponSelected = 0;
+	//Check maxAmmo whever adding ammo from pickup
+	public int maxAmmo = 10;
+
 	// Use this for initialization
 	void Start () {
 
@@ -54,55 +57,13 @@ public class characterStats : MonoBehaviour {
 		}
 	}
 
-	/*
-	void OnControllerColliderHit (ControllerColliderHit hit)
-	{
-
-		if(hit.gameObject.tag == "Mummy" && !addingKnockback)
-		{
-
-			Debug.Log ("Hit the mummy");
-
-			Ray ray = new Ray(transform.position, transform.position);
-			RaycastHit rayHit;
-			
-			Physics.Raycast(ray, out rayHit);
-			
-			Vector3 normal = rayHit.normal;
-
-			normal = rayHit.transform.TransformDirection (normal);
-			
-			if(normal == gameObject.transform.forward)
-			{
-				Debug.Log ("Hit from front");
-				applyDamage (damage, new Vector3(-1, 0, 0));
-			}
-			else if(normal == -gameObject.transform.forward)
-			{
-				Debug.Log ("Hit from Rear");
-				applyDamage (damage, new Vector3(1, 0, 0));
-			}
-			else if(normal == -gameObject.transform.up)
-			{
-				Debug.Log ("Hit from Bellow");
-				applyDamage (damage, new Vector3(0, 3, 0));
-			}
-			else if(normal == gameObject.transform.up)
-			{
-				Debug.Log ("Hit from Above");
-				applyDamage (damage, new Vector3(0, 3, 0));
-			}
-
-		}
-	}
-	*/
 
 	void Die() {
         //Application.LoadLevel(Application.loadedLevel);
         transform.position = spawnPoint;
         health = 10;	
 	}
-	// Update is called once per frame
+
 	void Update () {
 
 		//Debug.Log (health);
@@ -188,6 +149,7 @@ public class characterStats : MonoBehaviour {
 			if (timerRunning) {
 				timer += Time.deltaTime;
 				if (timer >= 1.0f) {
+					applyDamage (swarmDamage, Vector3.zero);
 					applyDamage (swarmDamage, -transform.up * 2);
 					timer = 0;
 				}
@@ -218,4 +180,5 @@ public class characterStats : MonoBehaviour {
 	}
 
 	void resetPlayerOrientation(){}
+
 }
