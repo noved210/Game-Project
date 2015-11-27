@@ -106,6 +106,7 @@
     <Compile Include="Assets\Scripts\TorchCode.cs" />
     <Compile Include="Assets\Scripts\TriggerPlatformChange.cs" />
     <Compile Include="Assets\Scripts\TwoStatObj.cs" />
+    <Compile Include="Assets\Scripts\aimEquipment.cs" />
     <Compile Include="Assets\Scripts\characterStats.cs" />
     <Compile Include="Assets\Scripts\fireProjectile.cs" />
     <Compile Include="Assets\Scripts\projectileAttributes.cs" />
