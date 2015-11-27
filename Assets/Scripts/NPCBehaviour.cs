@@ -16,7 +16,7 @@ public class NPCBehaviour : MonoBehaviour {
 	private int travelDirection;
 
 	public GameObject[] destinationNodes;
-	public float enemySpeed = 0.0f;
+	float enemySpeed = 0.0f;
 	public float waitAtDestinationTime = 1.0f;
 	public bool notActiveAtSTart;
 
@@ -29,6 +29,7 @@ public class NPCBehaviour : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		enemySpeed = gameObject.GetComponent<NPCStats>().speed;
 		playerDetection = GetComponentInChildren<PlayerDetection>();
 
 		destinationList = new Vector3[destinationNodes.Length];
@@ -54,9 +55,8 @@ public class NPCBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		//if the player has been seen and is currently in view
-
+		enemySpeed = gameObject.GetComponent<NPCStats>().speed;
 		if (!notActiveAtSTart) {
 
 			//Debug.Log (playerDetection.getSeen () + " " + playerDetection.getInView ());

@@ -5,7 +5,11 @@ public class NPCStats : MonoBehaviour {
 	public float health;
 	public float detectionRange;
 	public float damage;
+	public float origSpeed;
 	public float speed;
+	public float timer;
+	public float timerMax;
+	public bool timerOn;
 
 	// Use this for initialization
 	void Start () {
@@ -22,9 +26,7 @@ public class NPCStats : MonoBehaviour {
 		}
 
 	}
-	public void applyStun(){
 
-	}
 	/*
 	void OnTriggerEnter(Collider col)
 	{
@@ -66,8 +68,22 @@ public class NPCStats : MonoBehaviour {
 
 		}
 	}*/
-
+	public void stun(float time)
+	{
+		timer = 0f;
+		timerMax = time;
+		timerOn = true;
+		origSpeed = speed;
+		speed = 0f;
+	}
 	void Update () {
-		
+		if (timerOn) {
+			timer += Time.deltaTime;
+			if(timer>timerMax)
+			{
+				speed = origSpeed;
+				Debug.Log ("target unstunned");
+			}
+		}
 	}
 }

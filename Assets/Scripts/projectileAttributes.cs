@@ -5,6 +5,7 @@ public class projectileAttributes : MonoBehaviour {
 	public float speed;
 	//Rigidbody rb = GameObject.GetComponent<Rigidbody>();
 	public float damage;
+	private GameObject target;
 	// Use this for initialization
 	public string type = "base";
 	void Start () {
@@ -13,24 +14,25 @@ public class projectileAttributes : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnCollisionEnter (Collision col)
 	{
+		target = col.gameObject;
 		Debug.Log ("Projectile Collision Detected");
 		string typeTrue = System.Text.RegularExpressions.Regex.Replace (type, "(A-Z)", "(a-z)");
 		Debug.Log ("projectileTyle: " + typeTrue);
-		if(col.gameObject.GetComponent<NPCStats>())
+		if(target.GetComponent<NPCStats>())
 		{
 			if(typeTrue=="base"){
-				col.gameObject.GetComponent<NPCStats>().applyDamage(damage);
+				target.GetComponent<NPCStats>().applyDamage(damage);
 			}
 			else if (typeTrue=="stun")
 			{
-				col.gameObject.GetComponent<NPCStats>().speed = col.gameObject.GetComponent<NPCStats>().speed/3;
-				Debug.Log (col.gameObject.tag + " speed = " + col.gameObject.GetComponent<NPCStats>().speed);
-				effectTick ("stun", col.gameObject);
+				Debug.Log (target.tag + " speed = " + target.GetComponent<NPCStats>().speed);
+				stunTarget(target, 5.1f);
+
 			}
 			else if(typeTrue=="distract")
 			{
@@ -42,16 +44,11 @@ public class projectileAttributes : MonoBehaviour {
 		}
 		Destroy (gameObject);
 	}
-
-	IEnumerator effectTick(string effect, GameObject affectedObject)
+	void stunTarget(GameObject target1, float time)
 	{
-		if (effect == "stun") {
-			yield return new WaitForSeconds (3f);
-			affectedObject.GetComponent<NPCStats>().speed = affectedObject.GetComponent<NPCStats>().speed*3;
-			Debug.Log (affectedObject.tag + " speed = " + affectedObject.GetComponent<NPCStats>().speed);
-		} else if (effect == "distract") {
-			//distract effect
-		}
-	}
+		Debug.Log ("Target stunned");
+		float timerMax = time;
+		target.GetComponent<NPCStats> ().stun(timerMax);
 
+	}
 }
