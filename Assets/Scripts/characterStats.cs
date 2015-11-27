@@ -13,7 +13,7 @@ public class characterStats : MonoBehaviour {
 	private Vector3 knockback;
 	public float swarmDamage;
 
-
+    public Vector3 spawnPoint;
 	public float health = 10;
 	public float speed = 0.25f;
 	public float damage = 1;
@@ -98,8 +98,9 @@ public class characterStats : MonoBehaviour {
 	*/
 
 	void Die() {
-		Application.LoadLevel(Application.loadedLevel);
-		
+        //Application.LoadLevel(Application.loadedLevel);
+        transform.position = spawnPoint;
+        health = 10;	
 	}
 	// Update is called once per frame
 	void Update () {
@@ -159,10 +160,29 @@ public class characterStats : MonoBehaviour {
 				applyDamage(damage, -Vector3.right);
 			}
 		}
-	}
+        if (trigger.gameObject.tag == "Spawn")
+        {
+            Debug.Log("spawn");
+            spawnPoint = trigger.transform.position;
+        }
+        if (trigger.gameObject.tag == "Spike")
+        {
+            Die();
+        }
 
-	//change the material transparency over time to indicate that the player is not being damaged
-	void OnTriggerStay(Collider trigger){
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("why");
+        if (col.gameObject.tag == "Break")
+        {
+            Debug.Log("hello");
+            Destroy(col.gameObject);
+        }
+    }
+
+    //change the material transparency over time to indicate that the player is not being damaged
+    void OnTriggerStay(Collider trigger){
 		//damage the player once per second
 		if (trigger.gameObject.tag == "BugSwarm") {
 			if (timerRunning) {
